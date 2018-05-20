@@ -21,38 +21,34 @@ struct rectangle_tag {
   int y;
   int width;
   int height;
-  int top;
-  int right;
 };
 typedef struct rectangle_tag rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
   if (r.width < 0) {
-    r.width = - r.width;
+    r.x = r.x + r.width;
+    r.width = -r.width;
   }
   if (r.height < 0) {
+    r.y = r.y + r.height;
     r.height = - r.height;
   }
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  r1.right = r1.x + r1.width;
-  r1.top = r1.y + r1.height;
+  rectangle ans;
+  r1 = canonicalize(r1);
+  r2 = canonicalize(r2);
+ 
+  ans.x = max(r1.x, r2.x);
+  ans.y = max(r1.y, r2.y);
 
-  r2.right = r2.x + r2.width;
-  r2.top = r2.y + r2.height;
-  
-  r1.x = max(r1.x, r2.x);
-  r1.y = max(r1.y, r2.y);
+  ans.width = min(r1.x+r1.width, r2.x+r2.width)-ans.x;
+  ans.height = min(r1.y+r1.height, r2.y+r2.height)-ans.y;
 
-  r1.right = min(r1.right, r2.right);
-  r1.top = min(r1.top, r2.top);
-
-  r1.width = r1.right - r1.x;
-  r1.height = r1.top - r1.y;
-  return r1;
+  return ans;
 }
 
 //You should not need to modify any code below this line
