@@ -48,6 +48,10 @@ rectangle intersection(rectangle r1, rectangle r2) {
   ans.width = min(r1.x+r1.width, r2.x+r2.width)-ans.x;
   ans.height = min(r1.y+r1.height, r2.y+r2.height)-ans.y;
 
+  if (ans.width <0 || ans.height <0){
+    ans.width =0;
+    ans.height=0l}
+  
   return ans;
 }
 
