@@ -50,7 +50,7 @@ rectangle intersection(rectangle r1, rectangle r2) {
 
   if (ans.width <0 || ans.height <0){
     ans.width =0;
-    ans.height=0l}
+    ans.height=0;}
   
   return ans;
 }
