@@ -1,9 +1,13 @@
-Grading at Sun May 20 20:26:08 UTC 2018
+Grading at Sun May 20 20:42:33 UTC 2018
 Attempting to compile rectangle.c
-rectangle.c: In function ‘intersection’:
-rectangle.c:53:18: error: expected ‘;’ before ‘}’ token
-     ans.height=0l}
-                  ^
-The code did not compile!
+Tring to run rectangle
+Your file matched the expected output
+removing your main() and replacing it with out own to run more tests...
+#################################################
+testcase1:
+testcase1 passed
+#################################################
+testcase2:
+testcase2 passed
 
-Overall Grade: F
+Overall Grade: A
